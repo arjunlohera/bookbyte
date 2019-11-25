@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             Discount for Students upto 30%</h5>
                     </div>
                     <div class="col-md-3">
-                        <span class="ph-number">Call : +91 98-7654-3210</span>
+                        <span class="ph-number">Call : <i class="fas fa-phone"></i> +91 98-7654-3210</span>
                     </div>
                 </div>
             </div>
