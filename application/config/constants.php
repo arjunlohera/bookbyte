@@ -87,3 +87,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 //CUSTOM CONSTANT
 
 define('APP_NAME', 'Book Byte');
+define('ADMIN_EMAIL', 'loheraarjun@gmail.com');

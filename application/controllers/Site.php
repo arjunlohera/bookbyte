@@ -46,11 +46,6 @@ class Site extends CI_Controller {
 		$this->layout->site_footer('SITE-HOME',true);
     }
 
-    public function contact_admin() {
-        $this->output->set_content_type('application/json');
-        $this->output->set_output(json_encode(array('status' => true)));
-    }
-
     public function buy($book_id = ""){
         if($book_id != "") {
             $data['book_info']  = $this->SiteModel->get_book_info($book_id);
@@ -111,6 +106,20 @@ class Site extends CI_Controller {
         }
     }
 
-    
+    public function contact_us() {
+        $this->load->model('Mails');
+        $mail_data = array(
+            'to_email' => ADMIN_EMAIL,
+            'name' => $this->input->post('name'),
+            'email' => $this->input->post('email'),
+            'message' => $this->input->post('message')
+        );
+        $send = $this->Mails->contact_us($mail_data);
+        if($send) {
+            echo json_encode(array('status' => true, 'msg' => 'Email sent successfully'));
+        } else {
+            echo json_encode(array('status' => false, 'errors' => $send));
+        }
+    }
 }
 ?>

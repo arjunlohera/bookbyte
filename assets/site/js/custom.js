@@ -41,8 +41,15 @@ var ContactUs = (function () {
 					}).then(function (data) {
 						$submit.button('reset');
 						if (data.status == true) {
-              toastr.success(data.msg, "Success");
+							// toastr.success(data.msg, 'Successfull');
+							Swal.fire({
+								icon: 'success',
+								title: 'Great',
+								text: 'Message sent successfully'
+							});
+							$form[0].reset();
 						} else {
+							console.log(data);
 							$.each(data.errors, function (i, e) {
 								toastr.error(e, "Error");
 							});
@@ -50,9 +57,8 @@ var ContactUs = (function () {
 					}, function (err) {
 						console.log(err);
 						$submit.button('reset');
-            toastr.error("Something Went Wrong !", "Error");
-          });
-
+            			toastr.error("Something Went Wrong !", "Error");
+          			});
 				}
 			});
 		}

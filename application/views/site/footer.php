@@ -42,7 +42,7 @@
                         <h3>Quick Contact us</h3>
                         <h6>We are now offering some good discount 
                             on selected books go and shop them</h6>
-                        <form action="<?=base_url('Site/contact_admin')?>" method="post" id="contact_form">
+                        <form action="<?=base_url('Site/contact_us')?>" method="post" id="contact_form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <input placeholder="Name" name="name" required>
@@ -88,25 +88,6 @@
   <a class="scroll-to-top rounded" href="#top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
  
 <?php foreach ($js as $j) {?>
     <script type="text/javascript" src="<?=$j?>"></script>
