@@ -25,25 +25,6 @@ var HandleLogin = (function () {
                         required: "Password is required."
                     }
                 },
-    
-                // invalidHandler: function(event, validator) { //display error alert on form submit   
-                //     $('.alert-danger', $('.login-form')).show();
-                // },
-    
-                // highlight: function(element) { // hightlight error inputs
-                //     $(element)
-                //         .closest('.form-group').addClass('has-error'); // set error class to the control group
-                // },
-    
-                // success: function(label) {
-                //     label.closest('.form-group').removeClass('has-error');
-                //     label.remove();
-                // },
-    
-                // errorPlacement: function(error, element) {
-                //     error.insertAfter(element.closest('.input-icon'));
-                // },
-    
                 submitHandler: function(form) {
                     var $form = $(form);
                     var $response_container = $('.response-container', $form);
@@ -77,6 +58,56 @@ var HandleLogin = (function () {
     };
 })();
 
+var ForgetPassword = (function () {
+    return {
+        init: function () {
+            $('#forget_password_form').validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block text-danger', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+    
+                messages: {
+                    email: {
+                        required: "Email is required."
+                    }
+                },
+                submitHandler: function(form) {
+                    var $form = $(form);
+                    var $submit = $('[type=submit]', $form);
+                    $submit.button('loading');
+                    $.ajax({
+                        url: Application.site_url + '/login/submit_forget_password',
+                        data: $form.serialize(),
+                        type: 'POST',
+                        dataType: 'JSON'
+                    }).then(function(data){
+                        $submit.button('reset');
+                        if(data.status == true) {
+                            toastr.success(data.msg, "Success");
+                        } else if(data.status == false) {
+                            $.each(data.errors, function(i, e){
+                                toastr.error(e, "Error");
+                            });
+                        }
+                    }, function(err) {
+                        console.log(err);
+                        $submit.button('reset');
+                        toastr.error("Something Went Wrong !", "Error");
+                    });
+    
+                }
+            });
+        }
+    };
+})();
+
 $(document).ready(function(){
     HandleLogin.init();
+    ForgetPassword.init();
 });

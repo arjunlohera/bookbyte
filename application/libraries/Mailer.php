@@ -56,10 +56,7 @@ class Mailer {
 
 	public function get_from() {
 		if(!$this->from) {
-			$email = config_item('email')['from'];
-			if(!$email) {
-				return 'BOOKBYTE <info@mybookbyte.com>';
-			}
+			return 'BOOKBYTE <info@mybookbyte.com>';
 		} else {
 			return $this->from;
 		}

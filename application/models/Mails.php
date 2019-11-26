@@ -22,6 +22,16 @@ class Mails extends CI_Model {
 		return $mail;
 	}
 
+	public function forget_password($data) {
+		$this->load->library('Mailer');
+		// send email
+		$mail = $this->mailer->set_to($data['to_email'])
+			->set_view('reset', $data)
+			->set_subject('Reset password for your '. APP_NAME . ' account.')
+			->send();
+		return $mail;
+	}
+
 	public function forget_username_email($email, $type) {
 		$this->load->library('Mailer');
 		$this->load->model('Drivermodel');
@@ -63,33 +73,7 @@ class Mails extends CI_Model {
 		return $mail;
 	}
 
-	public function forget_password_email($email, $type) {
-
-		switch ($type) {
-        case 'ADMINISTRATOR':
-          break;
-        case 'COMPANY':
-
-            $this->load->library('Mailer');
-			$this->load->model('Company');
-			$company = $this->Company->condition(array('email' => $email))->get()->row();
-			// parameters
-			$link = site_url('login/recover') . '?' . http_build_query(array(
-					'code' => $this->Company->create_reset_token($company->company_id)
-				));
-			// send email
-			$mail = $this->mailer->set_to($email)
-				->set_view('reset', array('username' => $company->username, 'email' => $email, 'link' => $link, 'type' => $type))
-				->set_subject('Reset password for your '. config_item('site_name') . ' account.')
-				->send();
-			return $mail;
-
-          break;
-      }
-      return false;
-
-		
-	}
+	
 
 	
 

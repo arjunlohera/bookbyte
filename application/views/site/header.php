@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="header-top">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3"><a href="#" class="web-url"><?=base_url()?></a></div>
+                    <!-- <div class="col-md-3"><a href="#" class="web-url"></a></div> -->
                     <div class="col-md-6">
                         <h5><span class="font-italic">[This web application is under development]</span><br /> Special
                             Discount for Students upto 30%</h5>

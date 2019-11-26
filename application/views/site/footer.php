@@ -51,7 +51,7 @@
                                     <input type="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea placeholder="Messege" name="message"></textarea>
+                                    <textarea placeholder="Messege" name="message" required></textarea>
                                 </div>
                                 <div class="col-md-12">
                                     <button class="btn black" type="submit"><i class="fas fa-paper-plane mr-2"></i> SEND</button>

@@ -40,8 +40,7 @@ var ContactUs = (function () {
 						dataType: 'JSON'
 					}).then(function (data) {
 						$submit.button('reset');
-						if (data.status == true) {
-							// toastr.success(data.msg, 'Successfull');
+						if (data.status === true) {
 							Swal.fire({
 								icon: 'success',
 								title: 'Great',
@@ -74,7 +73,7 @@ $(document).ready(function() {
       url : Application.site_url + '/Site/is_authorized', 
       dataType: 'JSON'
     }).then(function(data){
-      if(data.status == true) {
+      if(data.status === true) {
         //SHOW MODEL
         $('#seller_contact_info').modal('show');
       } else {

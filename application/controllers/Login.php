@@ -120,5 +120,31 @@ class Login extends CI_Controller {
 			$this->output->set_output(json_encode(array('status' => false,'msg' => 'Not valid request')));
 		}
 	}
+
+	public function submit_forget_password() {
+		$this->output->set_content_type('application/json');
+		$email = $this->input->post('email');
+		$record = $this->db->where(array('email' => $email))->get('users');
+		if($record->num_rows() <= 0) {
+			//EMAIL IS NOT REGISTERED
+			$this->output->set_output(json_encode(array('status' => false, 'errors' => array('This Email is not registered with us'))));
+			return false;
+		} else {
+			$user = $record->row();
+			$this->load->model('Mails');
+        	$mail_data = array(
+            'to_email' => $email,
+			'name' => $user->first_name,
+			'username' => $user->username,
+			'password' => $this->Auth->decrypt_password($user->password)
+        	);
+        	$send = $this->Mails->forget_password($mail_data);
+        	if($send) {
+            	$this->output->set_output(json_encode(array('status' => true, 'msg' => 'Please check your email')));
+        	} else {
+            	$this->output->set_output(json_encode(array('status' => false, 'errors' => $send)));
+        	}
+		}
+	}
 }
 ?>
