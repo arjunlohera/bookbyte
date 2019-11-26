@@ -107,7 +107,6 @@ class Site extends CI_Controller {
     }
 
     public function contact_us() {
-        $this->load->model('Mails');
         $mail_data = array(
             'to_email' => ADMIN_EMAIL,
             'name' => $this->input->post('name'),

@@ -81,6 +81,7 @@ class Login extends CI_Controller {
 				'registered_ip_address' => $this->input->ip_address(),
 			);
 			$this->db->insert('users', $data);
+			$this->Mails->send_welcome_email($data);
 			if($this->db->affected_rows() > 0) {
 				echo json_encode(array('status' => true, 'url' => site_url( $this->Auth->redirect_dashboard(false))));
 			} else {
@@ -131,7 +132,6 @@ class Login extends CI_Controller {
 			return false;
 		} else {
 			$user = $record->row();
-			$this->load->model('Mails');
         	$mail_data = array(
             'to_email' => $email,
 			'name' => $user->first_name,

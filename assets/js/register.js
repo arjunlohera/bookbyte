@@ -48,7 +48,7 @@ var HandleRegistration = (function () {
                     });  
                 });   
                 return isSuccess;                           
-            }); //,'<i class="fa fa-spinner fa-spin tooltips font-red"></i> Checking');
+            },'<i class="fa fa-spinner fa-spin tooltips font-red"></i> Checking');
 
             $.validator.addMethod("password_check", function(value) {
                 return /[A-Z]+/.test(value) && 
@@ -122,7 +122,7 @@ var HandleRegistration = (function () {
                         $submit.button('reset');
                         if(data.status === true) {
                             $('<div class="alert alert-success"><span class="close">&times;</span>Registration successful, redirecting...</div>').appendTo($response_container);
-                            window.location.replace(Application.base_url+"/Login");
+                            // window.location.replace(Application.base_url+"/Login");
                         } else if(data.status === false) {
                             $.each(data.errors, function(i, e){
                                 $('<div class="alert alert-danger"><span class="close">&times;</span>' + e + '</div>').appendTo($response_container);

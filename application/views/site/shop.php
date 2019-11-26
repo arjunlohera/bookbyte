@@ -10,7 +10,7 @@
                     <?php foreach($books as $book) { ?>
                     <div class="col-lg-3 col-md-6">
                         <div class="item">
-                            <img src="<?=base_url()?>assets/img/site/r1.jpg" alt="img">
+                        <img src="<?=base_url()?>assets/img/site/default_book.png" height="200" alt="<?=$book->book_title?>">
                             <h3><a href="#"><?=$book->book_title?></a></h3>
                             <h6>Original price <s>&#x20b9;<?=$book->original_price?></s> <br/>Selling price <span class="price">&#x20b9;<?=$book->selling_price?></span></h6>
                             <a class="btn btn-sm btn-block my-1" href="<?=base_url('Site/buy/').$book->book_id;?>">Buy Now</a>
