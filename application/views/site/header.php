@@ -29,11 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row">
                     <!-- <div class="col-md-3"><a href="#" class="web-url"></a></div> -->
                     <div class="col-md-6">
-                        <h5><span class="font-italic">[This web application is under development]</span><br /> Special
-                            Discount for Students upto 30%</h5>
+                        <h5><span class="font-italic">[This web application is under development]</span></h5> 
+                        <!-- <h5>Special Discount for Students upto 30%</h5> -->
+                        <small class="">Developed by <a class="text-reset" href="http://arjunlohera.tk">Arjun</a></small>
                     </div>
                     <div class="col-md-3">
-                        <span class="ph-number">Call : <i class="fas fa-phone"></i> +91 700-911-6745</span>
+                        <span class="ph-number">Call : <i class="fas fa-phone"></i> +91 98-7654-3210</span>
                     </div>
                 </div>
             </div>
