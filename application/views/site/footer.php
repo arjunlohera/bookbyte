@@ -9,8 +9,8 @@
                         <h4>Our Address</h4>
                         <h6><?=APP_NAME?>, Lovely Professional University,
                         Jalandhar, India</h6>
-                        <h6>Call : +91-98 7654 3210 </h6>
-                        <h6>Email : info@bookbyte.com</h6>
+                        <h6>Call : +91-7981268233 </h6>
+                        <h6>Email : admin@bookbyte.com</h6>
                     </div>
                     <div class="timing">
                         <h4>Call Timing</h4>
